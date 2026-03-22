@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useSubmitContactMessage } from "@/hooks/useQueries";
-import { Loader2, Mail, MapPin, Phone } from "lucide-react";
+import { Loader2, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -26,7 +26,13 @@ export function Contact() {
       { ...form, timestamp: BigInt(Date.now()) },
       {
         onSuccess: () => {
-          toast.success("Message sent! We'll be in touch soon.");
+          toast.success(
+            "Enquiry saved! WhatsApp is opening — please press Send to deliver your message.",
+          );
+          const waText = encodeURIComponent(
+            `New Enquiry from ${form.name}\nEmail: ${form.email}\nSubject: ${form.subject}\nMessage: ${form.message}`,
+          );
+          window.open(`https://wa.me/919444010383?text=${waText}`, "_blank");
           setForm({ name: "", email: "", subject: "", message: "" });
         },
         onError: () => toast.error("Could not send message. Please try again."),
@@ -96,6 +102,19 @@ export function Contact() {
                 Monday – Saturday: 9:00 AM – 6:00 PM
               </p>
               <p className="text-gray-600 text-sm">Sunday: Closed</p>
+            </div>
+            <div className="pt-2">
+              <a
+                href="https://wa.me/919444010383"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-ocid="contact.button"
+              >
+                <Button className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold gap-2">
+                  <MessageCircle className="w-5 h-5" />
+                  Chat on WhatsApp
+                </Button>
+              </a>
             </div>
           </motion.div>
 
