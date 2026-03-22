@@ -1,0 +1,34 @@
+import type { Principal } from "@icp-sdk/core/principal";
+export interface Some<T> {
+    __kind__: "Some";
+    value: T;
+}
+export interface None {
+    __kind__: "None";
+}
+export type Option<T> = Some<T> | None;
+export interface ContactMessage {
+    subject: string;
+    name: string;
+    email: string;
+    message: string;
+    timestamp: Time;
+}
+export interface VendorInquiry {
+    contactPerson: string;
+    businessName: string;
+    email: string;
+    message: string;
+    timestamp: Time;
+    phone: string;
+    monthlyVolume: bigint;
+    materialType: string;
+}
+export type Time = bigint;
+export interface backendInterface {
+    getAllContactMessages(): Promise<Array<ContactMessage>>;
+    getAllVendorInquiries(): Promise<Array<VendorInquiry>>;
+    getVendorInquiriesByMaterialType(materialType: string): Promise<Array<VendorInquiry>>;
+    submitContactMessage(message: ContactMessage): Promise<void>;
+    submitVendorInquiry(inquiry: VendorInquiry): Promise<void>;
+}
