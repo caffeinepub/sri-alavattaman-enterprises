@@ -285,7 +285,7 @@ export function VendorPartnership() {
                 </div>
                 <div className="mt-2 flex items-center gap-2 text-sm">
                   <Mail className="w-4 h-4" />
-                  <span>srialavattamman@gmail.com</span>
+                  <span>srialavattaman@gmail.com</span>
                 </div>
               </CardContent>
             </Card>

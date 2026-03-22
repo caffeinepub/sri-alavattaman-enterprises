@@ -72,7 +72,7 @@ export function Contact() {
                 label: "Phone",
                 value: "94440 10383 / 96779 60618",
               },
-              { icon: Mail, label: "Email", value: "Srialavatamman@gmail.com" },
+              { icon: Mail, label: "Email", value: "srialavattaman@gmail.com" },
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-brand-mint flex items-center justify-center flex-shrink-0">

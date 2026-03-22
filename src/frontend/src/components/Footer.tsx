@@ -121,7 +121,7 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-2 text-sm text-gray-400">
               <Mail className="w-4 h-4 text-brand-green" />
-              Srialavatamman@gmail.com
+              srialavattaman@gmail.com
             </li>
           </ul>
         </div>
